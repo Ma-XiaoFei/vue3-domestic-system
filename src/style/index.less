@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul > li {
+  list-style: none;
+}
+
+body {
+  max-width: 3000px;
+  margin: 0 auto;
+  background-color: #031637;
+
+  img {
+    user-select: none;
+    pointer-events: none;
+  }
+}
+
+.flex-box {
+  display: flex;
+}
+
+.flex-space {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  display: none;
+  width: 10px;
+  height: 10px;
+  background-color: #212124;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color: #131331;
+  border: 3px solid #161617;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #e9eaf1;
+}
+
+.home-page {
+  .rectangular {
+    margin-right: 5px;
+    width: 20px;
+  }
+  .title {
+    width: 74px;
+  }
+  .line {
+    position: relative;
+    margin-top: 10px;
+    height: 1px;
+    background-color: #202834;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -1px;
+      right: 20px;
+      width: 10px;
+      height: 3px;
+      background: #fff;
+    }
+  }
+}
+
+.el-tabs--card > .el-tabs__header .el-tabs__nav {
+  border: none !important;
+}
+.el-tabs--card > .el-tabs__header .el-tabs__item {
+  border: none !important;
+}
+
+.el-tabs__active-bar {
+  background-color: red;
+  display: none !important;
+}
+
+.el-tabs--card > .el-tabs__header {
+  border: none !important;
+}
+
+.el-tabs__item {
+  color: #fff !important;
+  background-color: #0d2d5d;
+
+  &.is-active {
+    background: rgba(0, 136, 255, 0.4);
+    box-shadow: inset 0px 0px 12px 0px rgba(0, 136, 255, 0.98);
+    border: 1px solid #0088ff;
+  }
+}
+
+.el-tabs__item:not(:first-child) {
+  margin-left: 10px;
+}
+
+.el-input__wrapper {
+  width: 30%;
+  background-color: #112141 !important;
+}
+
+// .el-table__inner-wrapper {
+//   thead tr th {
+//     color: #fff;
+//     background-color: #225ba9 !important;
+//     border-bottom: 1px solid #435069 !important;
+//   }
+
+//   .el-table__row{
+//     td {
+//       color: #fff;
+//       background-color: #031637 !important;
+//       border-bottom: 1px solid #435069 !important;
+//     }
+//   }
+
+//   .el-table__row--striped td {
+//     background-color: #07204a !important;
+//   }
+
+ 
+// }
+
+// .el-table--border .el-table__inner-wrapper::after, .el-table--border::after, .el-table--border::before, .el-table__inner-wrapper::before {
+//     background-color: #435069 !important;
+// }
