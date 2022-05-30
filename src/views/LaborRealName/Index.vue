@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref } from 'vue';
-import type { TabsPaneContext } from 'element-plus';
-import QueryComponent from './components/Index.vue';
 import QueryGroup from '@/components/QueryGroup/Index.vue';
 import echarts from '@/common/echart';
 import { optionsR } from './chartOption';
@@ -13,12 +11,12 @@ const tableData = Array.from({ length: 10 }, (t, i) => ({
   3: '项目',
   4: '在线',
   5: '正常',
-  6:'建筑电工',
-  7:'2021-12-22',
-  8:'08:32',
-  9:'https://alipic.lanhuapp.com/SketchPng34c958decd182af147477e22175e4604dce1a52b2e8af53e176fab5646a50efe',
-  10:'08:32',
-  11:''
+  6: '建筑电工',
+  7: '2021-12-22',
+  8: '08:32',
+  9: 'https://alipic.lanhuapp.com/SketchPng34c958decd182af147477e22175e4604dce1a52b2e8af53e176fab5646a50efe',
+  10: '08:32',
+  11: '',
 }));
 
 const Darr = Array.from(
@@ -26,6 +24,7 @@ const Darr = Array.from(
   (t: undefined, i: number) => `05-${i + 1 < 10 ? '0' + (i + 1) : i + 1}`
 );
 const chartRef = ref();
+
 const data = reactive({
   dateData: Array(30)
     .fill(undefined)
@@ -88,7 +87,11 @@ onMounted(() => {
       <h5 class="title-chart">考勤数据表</h5>
       <QueryGroup :groups="data.groups" v-model="data.params" />
 
-      <el-table stripe :data="tableData" max-height="calc(100vh - 25vh - 400px)">
+      <el-table
+        stripe
+        :data="tableData"
+        max-height="calc(100vh - 25vh - 400px)"
+      >
         <el-table-column prop="date" label="序号" />
         <el-table-column prop="2" label="姓名" />
         <el-table-column prop="3" label="参建单位" />
@@ -99,16 +102,16 @@ onMounted(() => {
         <el-table-column prop="8" label="入场时间" />
         <el-table-column prop="9" label="入场照片">
           <template #default="scope">
-            <div style="width:40px;height:40px;">
-              <img style="width:100%;"  :src="scope.row[9]" alt="">
+            <div style="width: 40px; height: 40px">
+              <img style="width: 100%" :src="scope.row[9]" alt="" />
             </div>
           </template>
         </el-table-column>
         <el-table-column prop="10" label="出场时间" />
         <el-table-column prop="11" label="出场照片">
-           <template #default="scope">
-            <div style="width:40px;height:40px;">
-              <img style="width:100%;"  :src="scope.row[9]" alt="">
+          <template #default="scope">
+            <div style="width: 40px; height: 40px">
+              <img style="width: 100%" :src="scope.row[9]" alt="" />
             </div>
           </template>
         </el-table-column>
@@ -117,10 +120,10 @@ onMounted(() => {
       <el-pagination
         background
         layout="slot,prev, pager, next"
-        :total="199"
+        :total="50"
         class="mt-4"
       >
-        <span class="total-num">共199条</span>
+        <span class="total-num">共50条</span>
       </el-pagination>
     </div>
   </div>

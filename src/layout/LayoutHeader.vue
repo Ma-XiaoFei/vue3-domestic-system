@@ -1,9 +1,25 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import day from 'dayjs';
+
+const mapDay = ['', '一', '二', '三', '四', '五'];
 
 const route = useRoute();
 const router = useRouter();
+
+const timeStr = ref('');
+const dateStr = ref('');
+const dayStr = ref('');
+
+const renderNowTime = () => {
+  setInterval(() => {
+    const instance = day();
+    timeStr.value = instance.format('HH:mm:ss');
+    dateStr.value = instance.format('YYYY.MM.DD');
+    dayStr.value = mapDay[instance.get('day')];
+  }, 1000);
+};
 
 const headTitle = computed(() => {
   const classObj = {
@@ -12,6 +28,10 @@ const headTitle = computed(() => {
     digital: ['/equipment-safety-management','/labor-real-name','/video-surveillance'].includes(route.path),
   };
   return classObj;
+});
+
+onMounted(() => {
+  renderNowTime();
 });
 </script>
 
@@ -31,8 +51,8 @@ const headTitle = computed(() => {
       </div>
       <div :class="headTitle"></div>
       <span class="time">
-        <span class="t">20:30:59</span>
-        <span class="date">2022.06.10星期四</span></span
+        <span class="t">{{ timeStr }}</span>
+        <span class="date">{{ dateStr }} 星期{{ dayStr }}</span></span
       >
     </div>
   </div>
@@ -73,6 +93,9 @@ const headTitle = computed(() => {
     margin-top: 10px;
 
     .t {
+      display: inline-block;
+      width: 80px;
+
       font-size: 20px;
     }
     .date {
