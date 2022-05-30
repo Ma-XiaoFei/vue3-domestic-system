@@ -1,7 +1,10 @@
 <script lang="ts" setup>
+import { reactive, ref, onMounted } from 'vue';
+import {useRouter} from 'vue-router';
 import { optionsR } from './echartsOptions';
 import echart from '@/common/echart';
-import { reactive, ref, onMounted } from 'vue';
+
+const router = useRouter();
 const echartRef = ref();
 const data = reactive({});
 
@@ -19,7 +22,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="block">
+  <div class="block" @click="router.push({name: 'laborRealName'})">
     <img class="rectangular" src="@/assets/矩形@2x.png" alt="" />
     <img class="title" src="@/assets/劳务实名@2x.png" alt="" />
     <div class="line"></div>

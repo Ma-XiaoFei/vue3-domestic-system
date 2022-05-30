@@ -46,6 +46,14 @@ body {
   background-color: #e9eaf1;
 }
 
+.dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #009eff;
+}
+
 .home-page {
   .rectangular {
     margin-right: 5px;
@@ -108,28 +116,86 @@ body {
   background-color: #112141 !important;
 }
 
-// .el-table__inner-wrapper {
-//   thead tr th {
-//     color: #fff;
-//     background-color: #225ba9 !important;
-//     border-bottom: 1px solid #435069 !important;
-//   }
+.el-table__inner-wrapper {
+  thead tr th {
+    color: #fff;
+    background-color: #225ba9 !important;
+    border-bottom: 1px solid #435069 !important;
+  }
 
-//   .el-table__row{
-//     td {
-//       color: #fff;
-//       background-color: #031637 !important;
-//       border-bottom: 1px solid #435069 !important;
-//     }
-//   }
+  .el-table__row {
+    td {
+      color: #fff;
+      background-color: #031637 !important;
+      border-bottom: 1px solid #435069 !important;
+    }
+  }
 
-//   .el-table__row--striped td {
-//     background-color: #07204a !important;
-//   }
+  .el-table__row--striped td {
+    background-color: #07204a !important;
+  }
+}
 
- 
-// }
+.el-table--border .el-table__inner-wrapper::after,
+.el-table--border::after,
+.el-table--border::before,
+.el-table__inner-wrapper::before {
+  background-color: #435069 !important;
+}
 
-// .el-table--border .el-table__inner-wrapper::after, .el-table--border::after, .el-table--border::before, .el-table__inner-wrapper::before {
-//     background-color: #435069 !important;
-// }
+.el-button:not(.is-link, [link]) {
+  min-width: 120px;
+  height: 40px;
+  color: #fff !important;
+  background: #123870 !important;
+  border-radius: 4px;
+
+  &.el-button--primary:not(.is-link, [link]) {
+    background: linear-gradient(
+      180deg,
+      #0088ff 0%,
+      #50adff 0%,
+      #0088ff 100%
+    ) !important;
+  }
+}
+
+.el-dialog {
+  background: #1e2e56 !important;
+
+  .el-dialog__header {
+    padding-top: 0;
+  }
+
+  .modal-header {
+    width: 50%;
+    height: 40px;
+    margin: 0 auto;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+    background: url(@/assets/modal-title.png);
+    background-size: contain;
+  }
+
+  .el-pagination {
+    margin-top: 10px;
+    margin-left: 52%;
+    color: #FFF;
+
+    ul > li {
+      border-radius: 4px;
+    }
+
+    .is-active.number {
+      background: rgba(255, 255, 255, 0.05)
+        linear-gradient(180deg, #0088ff 0%, #50adff 0%, #0088ff 100%);
+    }
+
+    .total-num {
+      color: #FFF;
+      margin-right: 5px;
+    }
+  }
+}

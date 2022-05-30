@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref, watch } from 'vue';
+import { onMounted, reactive } from 'vue';
 import type { TabsPaneContext } from 'element-plus';
 import QueryComponent from './components/Index.vue';
 const data = reactive({
-  active: '1',
+  active: '2',
 });
 
 const handleClick = (tab: TabsPaneContext, event: Event) => {
@@ -19,7 +19,7 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
     </div>
     <div>
       <el-tabs
-        
+        v-model="data.active"
         type="card"
         class="demo-tabs"
         @tab-click="handleClick"
@@ -27,16 +27,13 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
         <el-tab-pane label="视频监控125" name="1">
           <QueryComponent />
         </el-tab-pane>
-        <el-tab-pane label="塔吊检测10" name="2">
+        <el-tab-pane label="车辆识别25" name="2">
           <QueryComponent
         /></el-tab-pane>
-        <el-tab-pane label="地磅检测3" name="3">
+        <el-tab-pane label="智慧用电30" name="3">
           <QueryComponent />
         </el-tab-pane>
-        <el-tab-pane label="车辆识别10" name="4">
-          <QueryComponent
-        /></el-tab-pane>
-        <el-tab-pane label="扬尘监测4" name="5">
+        <el-tab-pane label="智慧用水15" name="4">
           <QueryComponent
         /></el-tab-pane>
       </el-tabs>

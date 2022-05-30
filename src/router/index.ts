@@ -1,16 +1,28 @@
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 
 export const routes = [
   {
     path: '/',
-    component: () => import('@/views/Home/Index.vue')
+    component: () => import('@/layout/Index.vue'),
+    children: [
+      { path: '/', component: () => import('@/views/Home/Index.vue') },
+      {
+        name: 'ciscoManage',
+        path: 'equipment-safety-management',
+        component: () => import('@/views/CiscoManage/Index.vue'),
+      },
+      {
+        name: 'laborRealName',
+        path: 'labor-real-name',
+        component: () => import('@/views/LaborRealName/Index.vue'),
+      },
+    ],
   },
-  { name: 'ciscoManage', path: '/equipment-safety-management', component: () => import('@/views/CiscoManage/Index.vue') },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
-  routes,
+  routes: [],
 });
 
 export default router;

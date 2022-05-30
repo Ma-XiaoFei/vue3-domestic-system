@@ -1,8 +1,18 @@
 <script setup lang="ts">
+import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 
 const route = useRoute();
 const router = useRouter();
+
+const headTitle = computed(() => {
+  const classObj = {
+    'regulatory-platform': true,
+    house: ['/'].includes(route.path),
+    digital: ['/equipment-safety-management','/labor-real-name'].includes(route.path),
+  };
+  return classObj;
+});
 </script>
 
 <template>
@@ -19,8 +29,11 @@ const router = useRouter();
           >
         </template>
       </div>
-      <div class="regulatory-platform"></div>
-      <span class="time">20:30:59 2022.06.10星期四</span>
+      <div :class="headTitle"></div>
+      <span class="time">
+        <span class="t">20:30:59</span>
+        <span class="date">2022.06.10星期四</span></span
+      >
     </div>
   </div>
 </template>
@@ -40,12 +53,17 @@ const router = useRouter();
     transform: translateX(-50%);
     width: 20%;
     height: 54px;
-    background-image: url(@/assets/regulatory-platform@2.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
   }
 
+  .house {
+    background-image: url(@/assets/regulatory-platform@2.png);
+  }
+  .digital {
+    background-image: url(@/assets/数字社区监管平台@2x.png);
+  }
   span {
     color: #abb0b9;
   }
@@ -53,6 +71,14 @@ const router = useRouter();
   .address,
   .time {
     margin-top: 10px;
+
+    .t {
+      font-size: 20px;
+    }
+    .date {
+      margin-left: 5px;
+      font-size: 16px;
+    }
   }
   .address {
     float: left;
