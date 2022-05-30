@@ -179,23 +179,33 @@ body {
     background-size: contain;
   }
 
-  .el-pagination {
-    margin-top: 10px;
-    margin-left: 52%;
-    color: #FFF;
+}
 
-    ul > li {
-      border-radius: 4px;
-    }
+.el-pagination {
+  display: flex;
+  justify-content: end;
+  margin-top: 15px;
+  color: #fff;
 
-    .is-active.number {
-      background: rgba(255, 255, 255, 0.05)
-        linear-gradient(180deg, #0088ff 0%, #50adff 0%, #0088ff 100%);
-    }
+  ul > li {
+    background: initial !important;
+    border: 1px solid #fff;
+    color: #fff !important;
+    border-radius: 4px;
 
-    .total-num {
-      color: #FFF;
-      margin-right: 5px;
+    &.is-active+li {
+      border: 1px solid #fff;
     }
+  }
+
+  .is-active.number {
+    border: none;
+    background: rgba(255, 255, 255, 0.05)
+      linear-gradient(180deg, #0088ff 0%, #50adff 0%, #0088ff 100%) !important;
+  }
+
+  .total-num {
+    color: #fff;
+    margin-right: 5px;
   }
 }

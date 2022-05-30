@@ -67,7 +67,7 @@ const data = reactive({
     <template #header>
       <div class="modal-header">车辆识别1号详情</div>
     </template>
-    <el-table :data="tableDataDetail" max-height="calc(100vh - 300px)">
+    <el-table :data="tableDataDetail" max-height="50vh">
       <el-table-column property="a" label="序号" />
       <el-table-column property="b" label="车辆牌照" />
       <el-table-column property="c" label="车辆识别" />
@@ -75,14 +75,16 @@ const data = reactive({
       <el-table-column property="e" label="进出状态" />
       <el-table-column property="f" label="出入时间" />
     </el-table>
-    <el-pagination
-      background
-      layout="slot,prev, pager, next"
-      :total="50"
-      class="mt-4"
-    >
-     <span class="total-num">共50条</span>
-    </el-pagination>
+    <div>
+      <el-pagination
+        background
+        layout="slot,prev, pager, next"
+        :total="50"
+        class="mt-4"
+      >
+        <span class="total-num">共50条</span>
+      </el-pagination>
+    </div>
   </el-dialog>
 </template>
 
