@@ -16,6 +16,11 @@ export const routes = [
         path: 'labor-real-name',
         component: () => import('@/views/LaborRealName/Index.vue'),
       },
+      {
+        name: 'videoSurveillance',
+        path: 'video-surveillance',
+        component: () => import('@/views/VideoSurveillance/Index.vue'),
+      },
     ],
   },
 ];
