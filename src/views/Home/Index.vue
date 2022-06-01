@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref, watch, computed } from 'vue';
+import {useRouter} from 'vue-router';
 import RealTimeWarning from './RealTimeWarning.vue';
 import CiscoManage from './CiscoManage.vue';
 import LaborRealName from './LaborRealName.vue';
+import LineProgress from '@/components/LineProgress/Index.vue';
 
+const router = useRouter();
 const data = reactive({
   list: [
     {
@@ -42,7 +45,15 @@ const data = reactive({
       <CiscoManage />
       <LaborRealName />
     </div>
-    <div class="main-bg"></div>
+    <div class="main-bg">
+      <LineProgress :safetyIndex="65"/>
+      <div class="tip-box">
+        <p>项目状态：施工中</p>
+        <p>竣工时间：2023年6月</p>
+        <p>建设单位：南部建设管理有限公司</p>
+        <p>设计单位：清华美术设计公司</p>
+      </div>
+    </div>
     <div class="right">
       <!-- 本月安全事故统计 -->
       <div class="safety-accident">
@@ -64,7 +75,7 @@ const data = reactive({
       </div>
 
       <!-- 视频监控 -->
-      <div class="video">
+      <div class="video" @click="router.push({name: 'videoSurveillance'})">
         <img class="rectangular" src="@/assets/矩形@2x.png" alt="" />
         <img class="title" src="@/assets/视频监控@2x.png" alt="" />
         <div class="line"></div>
@@ -111,11 +122,11 @@ const data = reactive({
   background-attachment: fixed;
   .main-bg {
     position: relative;
-   
+
     height: 100%;
-    flex:1;
+    flex: 1.5;
     @media screen and (min-width: 1700px) {
-       flex: 2;
+      flex: 2;
     }
 
     img {
@@ -123,6 +134,24 @@ const data = reactive({
       position: absolute;
       bottom: 0;
       height: 100%;
+    }
+
+    .tip-box {
+      position: absolute;
+      padding: 31px;
+      right: 10%;
+      top: 2%;
+      color: #fff;
+      background: url(@/assets/tipBox@2x.png) no-repeat;
+      background-size: 100% 100%;
+
+      @media screen and (max-width: 1600px){
+        top: 20%;
+      }
+
+      p {
+        margin-bottom: 10px;
+      }
     }
   }
   .left,

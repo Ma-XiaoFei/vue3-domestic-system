@@ -1,11 +1,11 @@
-import { ECOption } from "@/common/echart";
+import { ECOption } from '@/common/echart';
 
 interface OptType {
   num: number;
 }
 
-export const optionsRender = ({ num = 0 }: OptType):ECOption => {
-    const n = 100 - num;
+export const optionsRender = ({ num = 0 }: OptType): ECOption => {
+  const n = 100 - num;
   return {
     graphic: {
       elements: [
@@ -16,7 +16,7 @@ export const optionsRender = ({ num = 0 }: OptType):ECOption => {
           style: {
             fontSize: '16px',
             fill: '#00EAFF',
-            text: '90%',
+            text: n + '%',
           },
         },
       ],
@@ -28,10 +28,6 @@ export const optionsRender = ({ num = 0 }: OptType):ECOption => {
         data: [
           {
             value: n,
-            itemStyle: { opacity: 0 },
-          },
-          {
-            value: num,
             itemStyle: {
               color: {
                 type: 'linear',
@@ -52,6 +48,10 @@ export const optionsRender = ({ num = 0 }: OptType):ECOption => {
               },
               borderRadius: '50%',
             },
+          },
+          {
+            value: num,
+            itemStyle: { opacity: 0 },
           },
         ],
         labelLine: { show: false },

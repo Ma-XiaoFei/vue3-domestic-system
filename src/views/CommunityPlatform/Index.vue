@@ -3,6 +3,8 @@ import { onMounted, reactive, ref, watch, computed } from 'vue';
 import SafetyAnalysis from './SafetyAnalysis.vue';
 import SafetyAccident from './SafetyAccident.vue';
 import VideoSurveillance from './VideoSurveillance.vue';
+import LineProgress from '@/components/LineProgress/Index.vue';
+import CircularProgress from '@/components/CircularProgress/Index.vue';
 
 const data = reactive({
   list: [
@@ -39,7 +41,9 @@ const data = reactive({
   <div class="home-page">
     <div class="left">
       <!-- 安全指数分析 -->
-      <SafetyAnalysis />
+     <div style="padding: 44px 0">
+        <LineProgress :safetyIndex='68'/>
+     </div>
       <!-- 本月安全事故统计 -->
       <SafetyAccident />
       <!-- 实时视频监控 -->
@@ -96,6 +100,11 @@ const data = reactive({
         <div class="content">
           <!-- 透明图 -->
           <div class="outer"></div>
+          <div style="display: flex; justify-content: space-around;">
+            <CircularProgress :num="10"/>
+           <CircularProgress :num="60"/>
+           <CircularProgress :num="90"/>
+           </div>
         </div>
       </div>
       <!-- 最新公告 -->
@@ -260,6 +269,11 @@ const data = reactive({
         height: 3px;
         background: #fff;
       }
+    }
+
+    .line-progress {
+      width: 100%;
+      margin: 0;
     }
   }
 

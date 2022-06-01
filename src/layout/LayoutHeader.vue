@@ -13,12 +13,10 @@ const dateStr = ref('');
 const dayStr = ref('');
 
 const renderNowTime = () => {
-  setInterval(() => {
-    const instance = day();
-    timeStr.value = instance.format('HH:mm:ss');
-    dateStr.value = instance.format('YYYY.MM.DD');
-    dayStr.value = mapDay[instance.get('day')];
-  }, 1000);
+  const instance = day();
+  timeStr.value = instance.format('HH:mm:ss');
+  dateStr.value = instance.format('YYYY.MM.DD');
+  dayStr.value = mapDay[instance.get('day')];
 };
 
 const headTitle = computed(() => {
@@ -32,6 +30,7 @@ const headTitle = computed(() => {
 
 onMounted(() => {
   renderNowTime();
+  setInterval(renderNowTime, 1000);
 });
 </script>
 
