@@ -25,7 +25,7 @@ const headTitle = computed(() => {
   const classObj = {
     'regulatory-platform': true,
     house: ['/'].includes(route.path),
-    digital: ['/equipment-safety-management','/labor-real-name','/video-surveillance'].includes(route.path),
+    digital: ['/equipment-safety-management','/labor-real-name','/video-surveillance','/community-platform'].includes(route.path),
   };
   return classObj;
 });

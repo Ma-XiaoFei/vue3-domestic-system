@@ -1,0 +1,100 @@
+<script lang="ts" setup>
+import { reactive } from 'vue';
+import {useRouter} from 'vue-router';
+const router = useRouter();
+
+const data = reactive({
+   list: [
+    {
+      leval: 'NO.1',
+      typeName: '未戴安全帽',
+      num: '64起',
+    },
+    {
+      leval: 'NO.1',
+      typeName: '未戴安全帽',
+      num: '64起',
+    },
+    {
+      leval: 'NO.1',
+      typeName: '未戴安全帽',
+      num: '64起',
+    },
+    {
+      leval: 'NO.1',
+      typeName: '未戴安全帽',
+      num: '64起',
+    },
+    {
+      leval: 'NO.1',
+      typeName: '未戴安全帽',
+      num: '64起',
+    },
+   ],
+});
+</script>
+
+<template>
+   <div class="safety-accident">
+        <img class="rectangular" src="@/assets/矩形@2x.png" alt="" />
+        <img class="title" src="@/assets/本月安全事故统计@2x.png" alt="" />
+        <div class="line"></div>
+
+        <div class="content">
+          <div class="tabs-content">
+            <ul>
+              <li v-for="(item, i) in data.list" :key="i">
+                <span class="leval">{{ item.leval }}</span>
+                <span>{{ item.typeName }}</span>
+                <span>{{ item.num }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+</template>
+
+<style lang="less" scoped>
+ .safety-accident {
+      .title {
+        width: 150px;
+      }
+
+      .tabs-content {
+        margin-top: 10px;
+        // max-height: 32vh;
+        overflow: auto;
+        ul {
+          li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            height: 50px;
+            color: #97a0a7;
+            line-height: 50px;
+            font-size: 12px;
+            background: #06192b;
+            border-bottom: 1px solid rgba(0, 138, 183, 0.2);
+            // &:nth-child(odd) {
+            //   background: #06192b;
+            // }
+            // &:nth-child(even) {
+            //   background-color: #041322;
+            // }
+
+            &:nth-child(1) .leval {
+              color: #dc3237;
+            }
+            &:nth-child(2) .leval,
+            &:nth-child(3) .leval {
+              color: #00edff;
+            }
+            &:nth-child(4) .leval,
+            &:nth-child(5) .leval {
+              color: #009eff;
+            }
+          }
+        }
+      }
+  }
+</style>

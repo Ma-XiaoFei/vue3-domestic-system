@@ -21,6 +21,11 @@ export const routes = [
         path: 'video-surveillance',
         component: () => import('@/views/VideoSurveillance/Index.vue'),
       },
+      {
+        name: 'communityplatform',
+        path: 'community-platform',
+        component: () => import('@/views/CommunityPlatform/Index.vue'),
+      },
     ],
   },
 ];

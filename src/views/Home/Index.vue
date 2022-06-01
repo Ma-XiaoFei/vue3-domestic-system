@@ -71,7 +71,7 @@ const data = reactive({
         <div class="content">
           <img
             style="width: 100%; margin-top: 10px"
-            src="@/assets/位图@2x.png"
+            src="@/assets/位图.png"
             alt=""
           />
         </div>

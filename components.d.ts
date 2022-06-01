@@ -30,7 +30,7 @@ declare module '@vue/runtime-core' {
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTextarea: typeof import('element-plus/es')['ElTextarea']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
-    Index: typeof import('./src/components/QueryGroup/Index.vue')['default']
+    Index: typeof import('./src/components/CircularProgress/Index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }
