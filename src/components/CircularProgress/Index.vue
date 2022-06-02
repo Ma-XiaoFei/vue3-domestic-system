@@ -13,13 +13,11 @@ const chart = ref();
 const props = defineProps<PropType>();
 
 const renderChart = () => {
-  console.log(chart.value);
   chart.value.setOption(
     optionsRender({
       num: props.num,
     })
   );
-  window.addEventListener('resize', chart.value.resize as any);
 };
 
 watch(props, renderChart);

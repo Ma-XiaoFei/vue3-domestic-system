@@ -34,6 +34,12 @@ const data = reactive({
       num: '未完成',
     },
   ],
+  safetyEquipmentList: [
+    { type: '人脸识别', total: '89/个', error: '23/个', offline: '5/个' },
+    { type: '用电监测', total: '89/个', error: '23/个', offline: '5/个' },
+    { type: '用水监测', total: '89/个', error: '23/个', offline: '5/个' },
+    { type: '视频监测', total: '89/个', error: '23/个', offline: '5/个' },
+  ],
 });
 </script>
 
@@ -41,31 +47,55 @@ const data = reactive({
   <div class="home-page">
     <div class="left">
       <!-- 安全指数分析 -->
-     <div style="padding: 44px 0">
-        <LineProgress :safetyIndex='68'/>
-     </div>
+
+      <div style="flex: 1.5; height: 0">
+        <img class="rectangular" src="@/assets/矩形@2x.png" alt="" />
+        <img
+          class="title"
+          style="width: 120px"
+          src="@/assets/安全指数分析@2x.png"
+          alt=""
+        />
+        <div class="line"></div>
+        <div class="progress-box">
+          <LineProgress :safetyIndex="68" />
+        </div>
+      </div>
       <!-- 本月安全事故统计 -->
       <SafetyAccident />
       <!-- 实时视频监控 -->
       <VideoSurveillance />
     </div>
     <div class="main-bg">
-      <div class="outer"></div>
       <div class="cellinformation">
         <div></div>
         <ul>
-          <li><img src="@/assets/编组9.png" alt="">名称：景顺家园</li>
-          <li><img src="@/assets/编组9备份6.png" alt="">地址：北京市朝阳区望京西路98号</li>
-          <li><img src="@/assets/编组9备份7.png" alt="">消防责任人：李莎 132****6563</li>
-          <li><img src="@/assets/编组9备份8.png" alt="">消防管理人：王珍珍 132****6563</li>
-          <li><img src="@/assets/编组9备份9.png" alt="">消控室联系人：赵可欣  010-74656897</li>
+          <li><img src="@/assets/编组9.png" alt="" />名称：景顺家园</li>
+          <li>
+            <img
+              src="@/assets/编组9备份6.png"
+              alt=""
+            />地址：北京市朝阳区望京西路98号
+          </li>
+          <li>
+            <img src="@/assets/编组9备份7.png" alt="" />消防责任人：李莎
+            132****6563
+          </li>
+          <li>
+            <img src="@/assets/编组9备份8.png" alt="" />消防管理人：王珍珍
+            132****6563
+          </li>
+          <li>
+            <img src="@/assets/编组9备份9.png" alt="" />消控室联系人：赵可欣
+            010-74656897
+          </li>
         </ul>
       </div>
       <!-- 巡更巡检信息 -->
       <div class="patrolinformation">
-         <img class="rectangular" src="@/assets/矩形@2x.png" alt="" />
-         <img class="title" src="@/assets/巡更巡检信息@2x.png" alt="" />
-         <div class="line"></div>
+        <img class="rectangular" src="@/assets/矩形@2x.png" alt="" />
+        <img class="title" src="@/assets/巡更巡检信息@2x.png" alt="" />
+        <div class="line"></div>
         <div class="content">
           <div class="tabs-content">
             <ul>
@@ -86,25 +116,82 @@ const data = reactive({
         <img class="title" src="@/assets/今日人车流量信息@2x.png" alt="" />
         <div class="line"></div>
 
-        <div class="content">
-          <!-- 透明图 -->
+        <div class="content" style="height: calc(100% - 50px)">
           <div class="bg"></div>
+          <div class="wrapper-right">
+            <div class="flex-column">
+              <h5 style="flex: 1">今日流量</h5>
+              <div class="data-box" style="flex: 2">
+                <img src="@/assets/lock.png" alt="" />
+                <div>
+                  <span style="color: #fff; font-size: 26px">1,782</span
+                  >/人<br />今日开门数
+                </div>
+              </div>
+            </div>
+            <div class="flex-column">
+              <h5>今日车流量</h5>
+              <div class="data-box">
+                <img src="@/assets/stop-car.png" alt="" />
+                <div>
+                  <span style="color: #fff; font-size: 26px">1,032</span
+                  >/人<br />今日进场
+                </div>
+              </div>
+              <div class="data-box">
+                <img src="@/assets/car.png" alt="" />
+                <div>
+                  <span style="color: #fff; font-size: 26px">823</span
+                  >/人<br />今日出场
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-     <!-- 今日人车流量信息 -->
-      <div class="trafficinformation">
+      <div class="trafficinformation safety-equipment">
         <img class="rectangular" src="@/assets/矩形@2x.png" alt="" />
-        <img class="title" src="@/assets/今日人车流量信息@2x.png" alt="" />
+        <img
+          class="title"
+          style="width: 120px"
+          src="@/assets/设备安全管理@2x.png"
+          alt=""
+        />
         <div class="line"></div>
         <div class="content">
           <!-- 透明图 -->
           <div class="outer"></div>
-          <div style="display: flex; justify-content: space-around;">
-            <CircularProgress :num="10"/>
-           <CircularProgress :num="60"/>
-           <CircularProgress :num="90"/>
-           </div>
+          <div style="display: flex; justify-content: space-around">
+            <div>
+              <CircularProgress :num="74.9" />
+              正常设备比
+            </div>
+            <div>
+              <CircularProgress :num="65.7" />
+              故障设备比
+            </div>
+            <div>
+              <CircularProgress :num="80" />
+              离线设备比
+            </div>
+          </div>
+          <div class="li-content">
+            <ul>
+              <li>
+                <span>设备类型</span>
+                <span>总数</span>
+                <span>故障</span>
+                <span>离线</span>
+              </li>
+              <li v-for="t in data.safetyEquipmentList" :key="t.type">
+                <span>{{ t.type }}</span>
+                <span>{{ t.total }}</span>
+                <span>{{ t.error }}</span>
+                <span>{{ t.offline }}</span>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <!-- 最新公告 -->
@@ -112,7 +199,7 @@ const data = reactive({
         <img class="rectangular" src="@/assets/矩形@2x.png" alt="" />
         <img class="title" src="@/assets/最新公告@2x.png" alt="" />
         <div class="line"></div>
-        <div class="content">
+        <div class="">
           <div class="tabs-content">
             <ul>
               <li v-for="i in 2" :key="i">
@@ -132,8 +219,8 @@ const data = reactive({
 
 <style lang="less" scoped>
 .home-page {
-  height: 100%;
-  overflow: auto;
+  overflow: hidden;
+  height: calc(100vh - 80px);
   display: flex;
   padding: 0 30px;
   justify-content: space-between;
@@ -142,7 +229,7 @@ const data = reactive({
   background-attachment: fixed;
   .main-bg {
     position: relative;
-    padding:0 10px;
+    padding: 0 10px;
     height: 100%;
     flex: 1.5;
     display: flex;
@@ -157,42 +244,35 @@ const data = reactive({
     //   bottom: 0;
     //   height: 100%;
     // }
-    .outer {
-      background: #039dce;
-      opacity: 0.1;
-      flex: 1.5;
-    }
     .cellinformation {
-      width:100%;
+      width: 100%;
+      height: 50%;
       display: flex;
       flex-direction: column;
       padding: 20px;
-      position: absolute;
-      left: 0;
-      top: 0;
-      div{
-        width:100%;
-        height:22vh;
+      background-color: rgba(3, 157, 206, 0.1);
+      div {
+        width: 100%;
+        height: 22vh;
         background: url(@/assets/cellinformation.png) no-repeat;
         background-size: 100% 100%;
-        
       }
       img {
         width: 100%;
         // height: 60%;
       }
-      ul{
-        li{
+      ul {
+        li {
           font-size: 16px;
-          color: #FFFFFF;
+          color: #ffffff;
           line-height: 24px;
-          margin-top:10px;
+          margin-top: 10px;
           text-shadow: 0px 0px 4px rgba(0, 234, 255, 0.6);
-          img{
+          img {
             width: 26px;
-            height:26px;
+            height: 26px;
             vertical-align: middle;
-            margin-right:13px;
+            margin-right: 13px;
           }
         }
       }
@@ -201,9 +281,9 @@ const data = reactive({
       margin-top: 20px;
       flex: 1;
       .title {
-      width: 120px;
+        width: 120px;
       }
-       .tabs-content {
+      .tabs-content {
         margin-top: 10px;
         overflow: auto;
         ul {
@@ -217,27 +297,30 @@ const data = reactive({
             font-size: 12px;
             background: #06192b;
             border-bottom: 1px solid rgba(0, 138, 183, 0.2);
-            margin-bottom:6px;
+            margin-bottom: 6px;
             &:nth-child(1) .leval {
-              color:#009eff;
+              color: #009eff;
             }
-            &:nth-child(1) .status, &:nth-child(2) .status, &:nth-child(3) .status{
-              color: #00C72A;
+            &:nth-child(1) .status,
+            &:nth-child(2) .status,
+            &:nth-child(3) .status {
+              color: #00c72a;
             }
-            &:nth-child(4) .status, &:nth-child(5) .status{
-              color: #FF6262;
+            &:nth-child(4) .status,
+            &:nth-child(5) .status {
+              color: #ff6262;
             }
             &:nth-child(2) .leval,
             &:nth-child(3) .leval {
-              color:#009eff;
+              color: #009eff;
             }
             &:nth-child(4) .leval,
             &:nth-child(5) .leval {
-              color: #FFFFFF;
+              color: #ffffff;
             }
           }
         }
-       }
+      }
     }
   }
   .left,
@@ -271,6 +354,13 @@ const data = reactive({
       }
     }
 
+    .progress-box {
+      padding: 30px 20px;
+      margin-top: 10px;
+      height: calc(100% - 50px);
+      background-color: rgba(3, 157, 206, 0.1);
+    }
+
     .line-progress {
       width: 100%;
       margin: 0;
@@ -278,49 +368,76 @@ const data = reactive({
   }
 
   .right {
+    .content {
+      height: 100%;
+      background-color: rgba(3, 157, 206, 0.1);
+      .wrapper-right {
+        padding: 20px;
+        height: calc(100% - 50px);
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        color: #fff;
+
+        .data-box {
+          display: flex;
+          text-align: left;
+        }
+        img {
+          width: 60px;
+          height: 60px;
+          margin-right: 10px;
+        }
+      }
+
+      .flex-column {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        div {
+          color: #909aa2;
+        }
+      }
+    }
     // display: flex;
     // flex-direction: column;
     .trafficinformation {
-      flex:1;
+      font-size: 14px;
+      color: #909aa2;
+      flex: 1.5;
+      height: 0;
+
       .title {
         width: 150px;
       }
-      .bg{
+
+      .content {
+        text-align: center;
+      }
+
+      .bg {
         background: #039dce;
         opacity: 0.1;
       }
-      .tabs-content {
-        margin-top: 10px;
-        // max-height: 32vh;
+      .li-content {
+        height: calc(100% - 120px);
         overflow: auto;
         ul {
           li {
             display: flex;
             justify-content: space-between;
             padding: 0 30px;
-            height: 50px;
-            color: #97a0a7;
-            line-height: 50px;
+            height: 30px;
+            line-height: 30px;
             font-size: 12px;
-            background: #06192b;
             border-bottom: 1px solid rgba(0, 138, 183, 0.2);
-            // &:nth-child(odd) {
-            //   background: #06192b;
-            // }
-            // &:nth-child(even) {
-            //   background-color: #041322;
-            // }
-
-            &:nth-child(1) .leval {
-              color: #dc3237;
-            }
-            &:nth-child(2) .leval,
-            &:nth-child(3) .leval {
-              color: #00edff;
-            }
-            &:nth-child(4) .leval,
-            &:nth-child(5) .leval {
-              color: #009eff;
+            &:not(&:nth-child(1)) {
+              margin-bottom: 8px;
+              background: linear-gradient(
+                94deg,
+                rgba(3, 157, 206, 0.2) 0%,
+                rgba(3, 157, 206, 0.05) 100%
+              );
             }
           }
         }
@@ -328,7 +445,7 @@ const data = reactive({
     }
     .announcement {
       margin-top: 20px;
-      flex:1;
+      flex: 1;
       .tabs-content {
         margin-top: 10px;
         // max-height: 32vh;
@@ -367,5 +484,11 @@ const data = reactive({
   height: 5px;
   border-radius: 50%;
   background-color: #009eff;
+}
+
+.safety-equipment {
+  .content {
+    height: calc(100% - 20px) !important;
+  }
 }
 </style>

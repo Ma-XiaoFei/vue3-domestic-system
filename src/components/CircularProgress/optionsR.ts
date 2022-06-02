@@ -16,7 +16,7 @@ export const optionsRender = ({ num = 0 }: OptType): ECOption => {
           style: {
             fontSize: '16px',
             fill: '#00EAFF',
-            text: n + '%',
+            text: num + '%',
           },
         },
       ],
@@ -27,7 +27,7 @@ export const optionsRender = ({ num = 0 }: OptType): ECOption => {
         radius: ['60%', '80%'],
         data: [
           {
-            value: n,
+            value: num,
             itemStyle: {
               color: {
                 type: 'linear',
@@ -50,7 +50,7 @@ export const optionsRender = ({ num = 0 }: OptType): ECOption => {
             },
           },
           {
-            value: num,
+            value: n,
             itemStyle: { opacity: 0 },
           },
         ],
