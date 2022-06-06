@@ -9,7 +9,7 @@ setTimeout(() => {
   routes.forEach((t) => {
     router.addRoute(t);
   });
-  router.replace(location.pathname);
+  router.replace(location.href + location.hash);
 }, 0);
 
 createApp(App).use(router).mount('#app');

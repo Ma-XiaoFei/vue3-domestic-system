@@ -19,7 +19,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="block" @click="router.push({name: 'videoSurveillance'})">
+  <div class="block" @click="router.push({name: 'videoSurveillance', query: {type: 'platform'}})">
     <img class="rectangular" src="@/assets/矩形@2x.png" alt="" />
     <img class="title" src="@/assets/实时视频监控@2x.png" alt="" />
     <div class="line"></div>
@@ -35,7 +35,7 @@ onMounted(() => {
 <style lang="less" scoped>
 .block {
   flex: 1;
-  height: 0;
+  height: initial;
   margin-top: 30px;
 
   .title {

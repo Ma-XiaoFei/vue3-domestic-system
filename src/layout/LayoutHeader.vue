@@ -22,8 +22,8 @@ const renderNowTime = () => {
 const headTitle = computed(() => {
   const classObj = {
     'regulatory-platform': true,
-    house: ['/'].includes(route.path),
-    digital: ['/equipment-safety-management','/labor-real-name','/video-surveillance','/community-platform'].includes(route.path),
+    house: route.query.type === 'house' || ['/'].includes(route.path),
+    digital: route.query.type === 'platform' || ['/labor-real-name','/community-platform'].includes(route.path),
   };
   return classObj;
 });

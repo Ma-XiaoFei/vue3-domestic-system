@@ -75,7 +75,7 @@ const data = reactive({
       </div>
 
       <!-- 视频监控 -->
-      <div class="video" @click="router.push({name: 'videoSurveillance'})">
+      <div class="video" @click="router.push({name: 'videoSurveillance',query: {type: 'house'}})">
         <img class="rectangular" src="@/assets/矩形@2x.png" alt="" />
         <img class="title" src="@/assets/视频监控@2x.png" alt="" />
         <div class="line"></div>

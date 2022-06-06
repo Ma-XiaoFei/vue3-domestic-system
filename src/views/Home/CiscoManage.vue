@@ -13,7 +13,7 @@ const data = reactive({
 </script>
 
 <template>
-  <div class="block" @click="router.push({name: 'ciscoManage'})">
+  <div class="block" @click="router.push({name: 'ciscoManage', query: {type: 'house'}})">
     <img class="rectangular" src="@/assets/矩形@2x.png" alt="" />
     <img class="title" src="@/assets/设备安全管理@2x.png" alt="" />
     <div class="line"></div>

@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref, watch, computed } from 'vue';
-import SafetyAnalysis from './SafetyAnalysis.vue';
+import {useRouter} from 'vue-router';
 import SafetyAccident from './SafetyAccident.vue';
 import VideoSurveillance from './VideoSurveillance.vue';
 import LineProgress from '@/components/LineProgress/Index.vue';
 import CircularProgress from '@/components/CircularProgress/Index.vue';
 
+const router = useRouter();
 const data = reactive({
   list: [
     {
@@ -150,7 +151,7 @@ const data = reactive({
         </div>
       </div>
 
-      <div class="trafficinformation safety-equipment">
+      <div class="trafficinformation safety-equipment" @click="router.push({name: 'ciscoManage', query: {type: 'platform'}})">
         <img class="rectangular" src="@/assets/矩形@2x.png" alt="" />
         <img
           class="title"
