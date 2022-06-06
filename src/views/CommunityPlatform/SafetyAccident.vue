@@ -77,10 +77,10 @@ const data = reactive({
       li {
         display: flex;
         justify-content: space-between;
+        align-items: center;
         padding: 0 30px;
-        height: 50px;
+        height: 20%;
         color: #97a0a7;
-        line-height: 50px;
         font-size: 12px;
        background-color:rgba(3, 157, 206, .1);
         border-bottom: 1px solid rgba(0, 138, 183, 0.2);

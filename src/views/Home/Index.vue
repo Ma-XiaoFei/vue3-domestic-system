@@ -46,7 +46,9 @@ const data = reactive({
       <LaborRealName />
     </div>
     <div class="main-bg">
-      <LineProgress :safetyIndex="65"/>
+     <div style="height: 200px; width: 50%; max-width: 500px; float: left;">
+        <LineProgress :safetyIndex="65"/>
+     </div>
       <div class="tip-box">
         <p>项目状态：施工中</p>
         <p>竣工时间：2023年6月</p>
@@ -137,17 +139,12 @@ const data = reactive({
     }
 
     .tip-box {
-      position: absolute;
+      float: right;
       padding: 31px;
-      right: 10%;
-      top: 2%;
+      margin: 20px 40px 0 40px;
       color: #fff;
       background: url(@/assets/tipBox@2x.png) no-repeat;
       background-size: 100% 100%;
-
-      @media screen and (max-width: 1600px){
-        top: 20%;
-      }
 
       p {
         margin-bottom: 10px;
@@ -274,5 +271,8 @@ const data = reactive({
   height: 5px;
   border-radius: 50%;
   background-color: #009eff;
+}
+.line-progress {
+  width: 100%;
 }
 </style>

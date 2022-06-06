@@ -39,7 +39,7 @@ onMounted(() => {
     <div class="header">
       <div class="address">
         <template v-if="route.path === '/'">
-          <span>上海</span>
+          <span>宁波市</span>
           <span class="weather">雷阵雨</span>
         </template>
         <template v-else>

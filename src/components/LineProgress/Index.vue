@@ -1,20 +1,40 @@
 <script lang="ts" setup>
+import { onMounted, ref } from 'vue';
+import { optionsRender } from './optionR';
+import echarts from '@/common/echart';
 const props = defineProps<{
   safetyIndex: number;
 }>();
+
+const chartRef = ref();
+
+onMounted(() => {
+  const chart = echarts.init(chartRef.value);
+  chart.setOption(optionsRender(parseFloat(getComputedStyle(chartRef.value).height)*0.8));
+  window.addEventListener('resize', chart.resize as any);
+});
 </script>
 
 <template>
   <div class="line-progress">
-    <p><img src="@/assets/安全num.png" alt="" />本月安全指数</p>
-    <p class="achieve" :style="{ left: `calc(${props.safetyIndex}% - 50px` }">
-      已达到
-      <span style="font-size: 32px; color: #00eaff">{{props.safetyIndex}}</span>%
-    </p>
-    <div class="outer-line">
-      <div class="inner-line" :style="{ width: props.safetyIndex + '%' }"></div>
-      <div class="circle-top"></div>
+    <div style="position: absolute; width: 100%; z-index: 1; padding: 0 8px 0 3px;top: 50%;transform: translateY(-50%);">
+     <p style="position: absolute;top: -10vh; font-size: 1vh;"><img src="@/assets/安全num.png" alt="" />本月安全指数</p>
+      <p class="achieve" :style="{ left: `calc(${props.safetyIndex}% - 93px`, top: '-60px' }">
+        已达到
+        <span style="font-size: 32px; color: #00eaff">{{
+          props.safetyIndex
+        }}</span
+        >%
+      </p>
+      <div class="outer-line">
+        <div
+          class="inner-line"
+          :style="{ width: (props.safetyIndex-13) + '%' }"
+        ></div>
+        <div class="circle-top"></div>
+      </div>
     </div>
+    <div class="axis" ref="chartRef" style="height: 100%; width: 100%;"></div>
   </div>
 </template>
 
@@ -25,7 +45,7 @@ const props = defineProps<{
   flex-direction: column;
   justify-content: flex-start;
   width: 40%;
-  height: 20%;
+  height: 100%;
   margin-left: 10%;
   margin-top: 10px;
 
@@ -37,11 +57,11 @@ const props = defineProps<{
 
   p {
     font-size: 12px;
-    margin-bottom: 40px;
     color: #fff;
     img {
-      width: 20px;
-      vertical-align: bottom;
+      width: 1vw;
+      height: 1vw;
+      vertical-align: middle;
     }
   }
 

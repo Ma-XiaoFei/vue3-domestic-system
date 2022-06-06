@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, reactive, ref, watch, computed } from 'vue';
-import {useRouter} from 'vue-router';
+import { useRouter } from 'vue-router';
 import SafetyAccident from './SafetyAccident.vue';
 import VideoSurveillance from './VideoSurveillance.vue';
 import LineProgress from '@/components/LineProgress/Index.vue';
@@ -121,8 +121,8 @@ const data = reactive({
           <div class="bg"></div>
           <div class="wrapper-right">
             <div class="flex-column">
-              <h5 style="flex: 1">今日流量</h5>
-              <div class="data-box" style="flex: 2">
+              <h3 style="flex: 1">今日流量</h3>
+              <div class="data-box" style="flex: 2; align-items: center">
                 <img src="@/assets/lock.png" alt="" />
                 <div>
                   <span style="color: #fff; font-size: 26px">1,782</span
@@ -131,19 +131,19 @@ const data = reactive({
               </div>
             </div>
             <div class="flex-column">
-              <h5>今日车流量</h5>
+              <h3>今日车流量</h3>
               <div class="data-box">
                 <img src="@/assets/stop-car.png" alt="" />
                 <div>
                   <span style="color: #fff; font-size: 26px">1,032</span
-                  >/人<br />今日进场
+                  >/次<br />今日进场
                 </div>
               </div>
               <div class="data-box">
                 <img src="@/assets/car.png" alt="" />
                 <div>
                   <span style="color: #fff; font-size: 26px">823</span
-                  >/人<br />今日出场
+                  >/次<br />今日出场
                 </div>
               </div>
             </div>
@@ -151,7 +151,12 @@ const data = reactive({
         </div>
       </div>
 
-      <div class="trafficinformation safety-equipment" @click="router.push({name: 'ciscoManage', query: {type: 'platform'}})">
+      <div
+        class="trafficinformation safety-equipment"
+        @click="
+          router.push({ name: 'ciscoManage', query: { type: 'platform' } })
+        "
+      >
         <img class="rectangular" src="@/assets/矩形@2x.png" alt="" />
         <img
           class="title"
@@ -220,7 +225,7 @@ const data = reactive({
 
 <style lang="less" scoped>
 .home-page {
-  overflow: hidden;
+  overflow: auto;
   height: calc(100vh - 80px);
   display: flex;
   padding: 23px 30px;
@@ -264,10 +269,9 @@ const data = reactive({
       }
       ul {
         li {
-          font-size: 16px;
+          font-size: .5vw;
           color: #ffffff;
-          line-height: 24px;
-          margin-top: 10px;
+          margin-top: 2vh;
           text-shadow: 0px 0px 4px rgba(0, 234, 255, 0.6);
           img {
             width: 26px;
@@ -383,10 +387,11 @@ const data = reactive({
         .data-box {
           display: flex;
           text-align: left;
+          align-items: center;
         }
         img {
-          width: 60px;
-          height: 60px;
+          width: 5vw;
+          height: 5vw;
           margin-right: 10px;
         }
       }
@@ -445,7 +450,7 @@ const data = reactive({
       }
     }
     .announcement {
-      padding-top:20px;
+      padding-top: 20px;
       margin-top: 20px;
       flex: 1;
       .tabs-content {
@@ -489,7 +494,7 @@ const data = reactive({
 }
 
 .safety-equipment {
-  padding-top:20px;
+  padding-top: 20px;
   cursor: pointer;
   .content {
     height: calc(100% - 20px) !important;
