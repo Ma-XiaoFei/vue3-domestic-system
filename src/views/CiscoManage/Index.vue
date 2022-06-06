@@ -48,7 +48,7 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
 .title {
   margin-bottom: 10px;
   img {
-    width: 18%;
+    // width: 18%;
   }
 }
 </style>

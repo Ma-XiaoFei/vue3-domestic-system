@@ -45,7 +45,7 @@ const data = reactive({
   <QueryGroup :groups="data.groups" v-model="data.params" />
 
   <el-table stripe :data="tableData" max-height="calc(100vh - 300px)">
-    <el-table-column prop="date" label="序号" />
+    <el-table-column align='center' prop="date" label="序号" />
     <el-table-column prop="name" label="摄像头名称" />
     <el-table-column prop="state" label="安装位置" />
     <el-table-column prop="city" label="项目名称" />

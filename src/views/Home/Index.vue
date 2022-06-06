@@ -115,7 +115,7 @@ const data = reactive({
   height: 100%;
   overflow: auto;
   display: flex;
-  padding: 0 30px;
+  padding: 23px 30px;
   justify-content: space-between;
   background: url(@/assets/BG.png) no-repeat bottom;
   background-size: 100% 100%;
@@ -229,10 +229,12 @@ const data = reactive({
         }
       }
     }
-
+    .video{
+      cursor: pointer;
+    }
     .video,
     .announcement {
-      margin-top: 20px;
+      margin-top: 30px;
 
       .tabs-content {
         margin-top: 10px;

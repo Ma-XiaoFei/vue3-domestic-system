@@ -46,6 +46,7 @@ const data = reactive({
 
 <style lang="less" scoped>
 .block {
+  cursor: pointer;
   // flex: 1;
   margin-top: 30px;
 

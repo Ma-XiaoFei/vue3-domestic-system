@@ -223,7 +223,7 @@ const data = reactive({
   overflow: hidden;
   height: calc(100vh - 80px);
   display: flex;
-  padding: 0 30px;
+  padding: 23px 30px;
   justify-content: space-between;
   background: url(@/assets/bg@2x2.png) no-repeat bottom;
   background-size: 100% 100%;
@@ -445,6 +445,7 @@ const data = reactive({
       }
     }
     .announcement {
+      padding-top:20px;
       margin-top: 20px;
       flex: 1;
       .tabs-content {
@@ -488,6 +489,8 @@ const data = reactive({
 }
 
 .safety-equipment {
+  padding-top:20px;
+  cursor: pointer;
   .content {
     height: calc(100% - 20px) !important;
   }

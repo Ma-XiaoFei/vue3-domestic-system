@@ -56,6 +56,7 @@ const data = reactive({
 
 <style lang="less" scoped>
 .safety-accident {
+  padding-top:20px;
   flex: 1.5;
   height: 0;
   .title {

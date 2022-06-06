@@ -59,6 +59,7 @@ onMounted(() => {
 
 <style lang="less" scoped>
 .block {
+  cursor: pointer;
   margin-top: 30px;
   // flex: 1;
 

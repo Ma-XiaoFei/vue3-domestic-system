@@ -48,7 +48,7 @@ const data = reactive({
   <QueryGroup :groups="data.groups" v-model="data.params" />
 
   <el-table stripe :data="tableData" max-height="calc(100vh - 300px)">
-    <el-table-column prop="date" label="序号" />
+    <el-table-column align='center'  prop="date" label="序号" />
     <el-table-column prop="name" label="车辆识别" />
     <el-table-column prop="state" label="位置（GPS定位）" />
     <el-table-column prop="city" label="项目名称" />
@@ -73,7 +73,7 @@ const data = reactive({
       <el-table-column property="c" label="车辆识别" />
       <el-table-column property="d" label="重量（吨）" />
       <el-table-column property="e" label="进出状态" />
-      <el-table-column property="f" label="出入时间" />
+      <el-table-column width="180px" property="f" label="出入时间" />
     </el-table>
     <div>
       <el-pagination
@@ -88,4 +88,5 @@ const data = reactive({
   </el-dialog>
 </template>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+</style>
