@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, reactive, ref, watch, computed } from 'vue';
+import { onMounted, reactive } from 'vue';
 import { useRouter } from 'vue-router';
 import SafetyAccident from './SafetyAccident.vue';
 import VideoSurveillance from './VideoSurveillance.vue';
@@ -49,7 +49,7 @@ const data = reactive({
     <div class="left">
       <!-- 安全指数分析 -->
 
-      <div style="flex: 1.5; height: 0">
+      <div style="flex: 1.5; min-height: 300px">
         <img class="rectangular" src="@/assets/矩形@2x.png" alt="" />
         <img
           class="title"
@@ -68,7 +68,7 @@ const data = reactive({
       <VideoSurveillance />
     </div>
     <div class="main-bg">
-      <div class="cellinformation">
+      <div class="cellinformation" style="height: initial">
         <div></div>
         <ul>
           <li><img src="@/assets/编组9.png" alt="" />名称：景顺家园</li>
@@ -259,7 +259,8 @@ const data = reactive({
       background-color: rgba(3, 157, 206, 0.1);
       div {
         width: 100%;
-        height: 22vh;
+        height: 20vh;
+        min-height: 100px;
         background: url(@/assets/cellinformation.png) no-repeat;
         background-size: 100% 100%;
       }
@@ -269,7 +270,7 @@ const data = reactive({
       }
       ul {
         li {
-          font-size: .5vw;
+          font-size: 0.5vw;
           color: #ffffff;
           margin-top: 2vh;
           text-shadow: 0px 0px 4px rgba(0, 234, 255, 0.6);
@@ -390,8 +391,8 @@ const data = reactive({
           align-items: center;
         }
         img {
-          width: 5vw;
-          height: 5vw;
+          width: 60px;
+          height: 60px;
           margin-right: 10px;
         }
       }
@@ -411,7 +412,7 @@ const data = reactive({
       font-size: 14px;
       color: #909aa2;
       flex: 1.5;
-      height: 0;
+      // height: 0;
 
       .title {
         width: 150px;

@@ -58,7 +58,7 @@ const data = reactive({
 .safety-accident {
   padding-top:20px;
   flex: 1.5;
-  height: 0;
+  // height: 0;
   .title {
     width: 150px;
   }

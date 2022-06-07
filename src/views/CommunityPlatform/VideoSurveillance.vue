@@ -37,7 +37,7 @@ onMounted(() => {
   padding-top:20px;
   cursor: pointer;
   flex: 1;
-  height: initial;
+  // height: initial;
   margin-top: 30px;
 
   .title {
